@@ -1,0 +1,41 @@
+{
+"validuser":[
+    {
+        "email":"wafermitra@gmail.com",
+        "password":"abc1234",
+        "success": "Koperasi JSIT"
+    },
+    {
+        "email":"wafermember@gmail.com",
+        "password":"abc123",
+        "success": "Koperasi JSIT"
+    },
+    {
+        "email":"wafercustomer@gmail.com",
+        "password":"abc123",
+        "success": "Koperasi JSIT"
+    }
+],
+"invaliduser":[
+    {
+        "email":"wafferrvalid@gmail.com",
+        "password":"abc123",
+        "errorLine":"Email atau password salah"
+    },
+    {
+        "email":"wafermitra@gmail.com",
+        "password":"abcc123",
+        "errorLine":"Email atau password salah"
+    },
+    {
+        "email":"testmitra1@gmail.com",
+        "password":"abc123",
+        "errorLine":"Akun Anda masih menunggu verifikasi admin. Silakan cek status pendaftaran Anda."
+    },
+    {
+        "email":"testmember1@gmail.com",
+        "password":"abc123",
+        "errorLine":"Akun Anda masih menunggu verifikasi admin. Silakan cek status pendaftaran Anda."
+    }
+]
+}
