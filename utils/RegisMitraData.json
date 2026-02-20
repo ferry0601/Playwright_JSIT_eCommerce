@@ -1,0 +1,54 @@
+{
+"validMitra":[
+    {
+        "kategori":[
+            "Buku & Alat Tulis",
+            "Seragam & Perlengkapan Sekolah",
+            "Elektronik & Gadget",
+            "Makanan & Minuman",
+            "Fashion Muslim",
+            "Kebutuhan Rumah Tangga",
+            "Lainnya"
+        ],
+        "bank":[
+                    "BCA",
+                    "Mandiri",
+                    "BRI",
+                    "BNI",
+                    "CIMB Niaga"
+                ],
+        "ktpPath":"utils/datatest/ktpppp.jpg",
+        "siupPath":"utils/datatest/sss.jpeg",
+        "password":"abc123",
+        "passwordConfirm":"abc123",
+        "message":"Pendaftaran Berhasil!"
+    }
+],
+"invalidMitra":[
+    {
+        "name":"",
+        "email":"testcustomer11@gmail.com",
+        "phone":"08238728642",
+        "password":"abc123",
+        "passwordConfirm":"abc123",
+        "errorMessage":"Please fill out this field."
+    },
+    {
+        "name":"halalan toyiban",
+        "email":"testcustomer1@gmail.com",
+        "phone":"08238728642",
+        "password":"abc123",
+        "passwordConfirm":"abc12334",
+        "errorMessage":"Password dan konfirmasi password tidak cocok"
+    },
+    {
+        "name":"halalan toyiban",
+        "email":"wafercustomer@gmail.com",
+        "phone":"08238728642",
+        "password":"abc123",
+        "passwordConfirm":"abc123",
+        "errorMessage":"Email sudah terdaftar"
+    }
+    
+]
+}

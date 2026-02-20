@@ -1,6 +1,5 @@
 const { test, expect } = require("@playwright/test");
 const { POManager } = require("../pages/POManager");
-const { LoginPage } = require("../pages/LoginPage");
 const dataset = JSON.parse(JSON.stringify(require("../utils/loginData.json")));
 
 test.describe.parallel("Login Tests", () => {

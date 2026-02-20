@@ -1,0 +1,35 @@
+{
+"validCustomer":[
+    {
+        "password":"abc123",
+        "passwordConfirm":"abc123"
+    }
+],
+"invaliduser":[
+    {
+        "name":"",
+        "email":"testcustomer11@gmail.com",
+        "phone":"08238728642",
+        "password":"abc123",
+        "passwordConfirm":"abc123",
+        "errorMessage":"Please fill out this field."
+    },
+    {
+        "name":"halalan toyiban",
+        "email":"testcustomer1@gmail.com",
+        "phone":"08238728642",
+        "password":"abc123",
+        "passwordConfirm":"abc12334",
+        "errorMessage":"Password dan konfirmasi password tidak cocok"
+    },
+    {
+        "name":"halalan toyiban",
+        "email":"wafercustomer@gmail.com",
+        "phone":"08238728642",
+        "password":"abc123",
+        "passwordConfirm":"abc123",
+        "errorMessage":"Email sudah terdaftar"
+    }
+    
+]
+}
