@@ -3,16 +3,19 @@ const { POManager } = require("../pages/POManager");
 
 
   
-let publicPage;
+let publicPageMenu;
 test.beforeEach(async ({ page }) => {
     const poManager = new POManager(page);
-    publicPage = poManager.getPublicPage();
-    await publicPage.GoTo();
+    publicPageMenu = poManager.getPublicPageMenu();
+    await publicPageMenu.GoTo();
   });
 
 test.describe.parallel("Public Pages Tests", () => {
-  test('@CheckMenu List Menu',async ({page})=>{
-    await publicPage.checkMenuTentangKami();
+  test('@PublicPage checkMenu List Menu',async ({page})=>{
+    await publicPageMenu.checkMenuTentangKami();
+    await publicPageMenu.checkMenuKeanggotaan();
+    await publicPageMenu.checkMenuBerita_Kegiatan();
+    await publicPageMenu.checkMenuAkun();
   });
 
 });
