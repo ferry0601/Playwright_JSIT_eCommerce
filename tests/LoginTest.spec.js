@@ -2,7 +2,7 @@ const { test, expect } = require("@playwright/test");
 const { POManager } = require("../pages/POManager");
 const dataset = JSON.parse(JSON.stringify(require("../utils/loginData.json")));
 
-test.describe.parallel("Login Tests", () => {
+
   
   let loginPage;
   const logoutUser = dataset.validuser[0];
@@ -13,6 +13,7 @@ test.describe.parallel("Login Tests", () => {
     await loginPage.GoTo();
   });
 
+test.describe.parallel("Login Tests", () => {
   for (const data of dataset.validuser) {
     test(`@Login dengan kredensial valid ${data.email}`, async ({ page }) => {
       await loginPage.submitForm(data.email, data.password);

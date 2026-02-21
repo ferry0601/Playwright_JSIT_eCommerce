@@ -1,15 +1,11 @@
 {
-"validMitra":[
+"validMember":[
     {
-        "kategori":[
-            "Buku & Alat Tulis",
-            "Seragam & Perlengkapan Sekolah",
-            "Elektronik & Gadget",
-            "Makanan & Minuman",
-            "Fashion Muslim",
-            "Kebutuhan Rumah Tangga",
-            "Lainnya"
+        "gender":[
+            "Laki-Laki",
+            "Perempuan"
         ],
+        "tanggalLahir":"02/22/2000",
         "bank":[
                     "BCA",
                     "Mandiri",
@@ -18,25 +14,21 @@
                     "CIMB Niaga"
                 ],
         "ktpPath":"utils/datatest/ktpppp.jpg",
-        "siupPath":"utils/datatest/sss.jpeg",
+        "pasPhotoPath":"utils/datatest/profil.avif",
         "password":"abc123",
         "passwordConfirm":"abc123",
         "message":"Pendaftaran Berhasil!"
     }
 ],
-"invalidMitra":[
+"invalidMember":[
     {
         "name":"",
-        "email":"testmitra11@gmail.com",
-        "kategori":[
-            "Buku & Alat Tulis",
-            "Seragam & Perlengkapan Sekolah",
-            "Elektronik & Gadget",
-            "Makanan & Minuman",
-            "Fashion Muslim",
-            "Kebutuhan Rumah Tangga",
-            "Lainnya"
+        "email":"testmember111@gmail.com",
+        "gender":[
+            "Laki-Laki",
+            "Perempuan"
         ],
+        "tanggalLahir":"02/22/2000",
         "bank":[
                     "BCA",
                     "Mandiri",
@@ -45,23 +37,19 @@
                     "CIMB Niaga"
                 ],
         "ktpPath":"utils/datatest/ktpppp.jpg",
-        "siupPath":"utils/datatest/sss.jpeg",
+        "pasPhotoPath":"utils/datatest/profil.avif",
         "password":"abc123",
         "passwordConfirm":"abc123",
         "errorMessage":"Please fill out this field."
     },
     {
-        "name":"Test Automate Mitra1",
-        "email":"testautomatemitra12@gmail.com",
-        "kategori":[
-            "Buku & Alat Tulis",
-            "Seragam & Perlengkapan Sekolah",
-            "Elektronik & Gadget",
-            "Makanan & Minuman",
-            "Fashion Muslim",
-            "Kebutuhan Rumah Tangga",
-            "Lainnya"
+        "name":"Test Automate Member22",
+        "email":"testautomatemember12@gmail.com",
+        "gender":[
+            "Laki-Laki",
+            "Perempuan"
         ],
+        "tanggalLahir":"02/22/2000",
         "bank":[
                     "BCA",
                     "Mandiri",
@@ -70,23 +58,19 @@
                     "CIMB Niaga"
                 ],
         "ktpPath":"utils/datatest/ktpppp.jpg",
-        "siupPath":"utils/datatest/sss.jpeg",
+        "pasPhotoPath":"utils/datatest/profil.avif",
         "password":"abc123",
         "passwordConfirm":"abc14523",
         "errorMessage":"Password dan konfirmasi password tidak cocok"
     },
     {
-        "name":"Test Automate Mitra1",
-        "email":"wafermitra@gmail.com",
-        "kategori":[
-            "Buku & Alat Tulis",
-            "Seragam & Perlengkapan Sekolah",
-            "Elektronik & Gadget",
-            "Makanan & Minuman",
-            "Fashion Muslim",
-            "Kebutuhan Rumah Tangga",
-            "Lainnya"
+        "name":"Test Automate Member123",
+        "email":"wafermember@gmail.com",
+        "gender":[
+            "Laki-Laki",
+            "Perempuan"
         ],
+        "tanggalLahir":"02/22/2000",
         "bank":[
                     "BCA",
                     "Mandiri",
@@ -95,7 +79,7 @@
                     "CIMB Niaga"
                 ],
         "ktpPath":"utils/datatest/ktpppp.jpg",
-        "siupPath":"utils/datatest/sss.jpeg",
+        "pasPhotoPath":"utils/datatest/profil.avif",
         "password":"abc123",
         "passwordConfirm":"abc123",
         "errorMessage":"Email sudah terdaftar"

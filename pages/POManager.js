@@ -1,6 +1,8 @@
 const {LoginPage} = require('./LoginPage');
 const {RegisterPageCustomer} = require('./RegisterPageCustomer');
 const {RegisterPageMitra} = require('./RegisterPageMitra');
+const {RegisterPageMember} = require('./RegisterPageMember');
+const {PublicPage} = require('./PublicPage');
 
 class POManager{
     constructor(page){
@@ -8,6 +10,8 @@ class POManager{
         this.loginPage = new LoginPage(this.page);
         this.registerCustomer = new RegisterPageCustomer(this.page);
         this.registerMitra = new RegisterPageMitra(this.page);
+        this.registerMember = new RegisterPageMember(this.page);
+        this.publicPage = new PublicPage(this.page);
         
     }
 
@@ -21,6 +25,14 @@ class POManager{
 
     getRegisterMitra(){
         return this.registerMitra;
+    }
+
+    getRegisterMember(){
+        return this.registerMember;
+    }
+
+    getPublicPage(){
+        return this.publicPage;
     }
 }
 
