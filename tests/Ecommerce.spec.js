@@ -4,12 +4,14 @@ const datasetLogin = JSON.parse(JSON.stringify(require('../utils/loginData.json'
 
 
 let eCommercePage;
+let filterproductPage;
 let urutannya = "Harga Tertinggi";
 
 test.beforeEach('test login',async ({page})=>{
     const poManager = new POManager(page);
     const data = datasetLogin.validuser[2];
     const loginPage = poManager.getLoginPage();
+    filterproductPage = poManager.getFilterPage();
     eCommercePage = poManager.getECommercePage();
     await eCommercePage.GoTo();
     await loginPage.submitForm(data.email,data.password);
@@ -28,5 +30,17 @@ test.describe.parallel('E-Commerce test -- ',()=>{
     test('@ECommerce urutkan harga', async ({page})=>{
         await eCommercePage.selectOrderHarga(urutannya);
     });
+
+    test('@ECommerce filter by category',async ({page})=>{
+        await filterproductPage.checkfiltercategory();
+    });
+
+    test('@ECommerce filter by prices', async({page})=>{
+        await filterproductPage.checkfilterprice();
+    });
+
+    test.only('@ECommerce filter by rating vendor',async ({page})=>{
+        await filterproductPage.checkfilterrating();
+    })
 
 });

@@ -5,6 +5,7 @@ const {RegisterPageMember} = require('./RegisterPageMember');
 const {PublicPageMenuList} = require('./PublicPageMenu');
 const {DashboardPage} = require('./DashboardPage');
 const {ECommercePage} = require('./ECommercePage');
+const {FilterProductPage} = require('./FilterProductPage');
 
 class POManager{
     constructor(page){
@@ -16,6 +17,7 @@ class POManager{
         this.publicPageMenu = new PublicPageMenuList(this.page);
         this.dashboardPage = new DashboardPage(this.page);
         this.eCommercePage = new ECommercePage(this.page);
+        this.filterproductPage = new FilterProductPage(this.page);
     }
 
     getLoginPage(){
@@ -44,6 +46,10 @@ class POManager{
     
     getECommercePage(){
         return this.eCommercePage;
+    }
+
+    getFilterPage(){
+        return this.filterproductPage;
     }
 }
 
