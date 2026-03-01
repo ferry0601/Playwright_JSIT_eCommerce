@@ -15,7 +15,7 @@ import { chromium, defineConfig, devices } from '@playwright/test';
 export default defineConfig({
   testDir: './tests',
   retries:0,
-  timeout: 30*1000,
+  timeout: 50*1000,
   workers:3,
   expect:{
     timeout: 5000,

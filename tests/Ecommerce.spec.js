@@ -1,11 +1,11 @@
 const {POManager} = require('../pages/POManager');
 const {test,expect, request} = require('@playwright/test');
 const datasetLogin = JSON.parse(JSON.stringify(require('../utils/loginData.json')));
-
+const dataEcommerce = JSON.parse(JSON.stringify(require('../utils/eCommerceData.json')));
 
 let eCommercePage;
 let filterproductPage;
-let urutannya = "Harga Tertinggi";
+let addCartPage;
 
 test.beforeEach('test login',async ({page})=>{
     const poManager = new POManager(page);
@@ -13,6 +13,7 @@ test.beforeEach('test login',async ({page})=>{
     const loginPage = poManager.getLoginPage();
     filterproductPage = poManager.getFilterPage();
     eCommercePage = poManager.getECommercePage();
+    addCartPage = poManager.getAddCartPage();
     await eCommercePage.GoTo();
     await loginPage.submitForm(data.email,data.password);
     
@@ -28,7 +29,7 @@ test.describe.parallel('E-Commerce test -- ',()=>{
     });
 
     test('@ECommerce urutkan harga', async ({page})=>{
-        await eCommercePage.selectOrderHarga(urutannya);
+        await eCommercePage.selectOrderHarga(dataEcommerce.urutannya);
     });
 
     test('@ECommerce filter by category',async ({page})=>{
@@ -39,8 +40,28 @@ test.describe.parallel('E-Commerce test -- ',()=>{
         await filterproductPage.checkfilterprice();
     });
 
-    test.only('@ECommerce filter by rating vendor',async ({page})=>{
+    test('@ECommerce filter by rating vendor',async ({page})=>{
         await filterproductPage.checkfilterrating();
-    })
+    });
+
+    test('@ECommerce reset filter', async ({page})=>{
+        await filterproductPage.checkfilterrating();
+        const reset = await filterproductPage.resetFilter();
+        await expect(reset).toBeChecked();
+    });
+
+    test.only('@ECommerce testing checkout item kondisi (bayar di depan dan kirim alamat)',async ({page})=>{
+        await addCartPage.searchandAddcart(dataEcommerce.nameProduct);
+        await addCartPage.getCheckProductinCart(dataEcommerce.nameProduct);
+        await addCartPage.metodePengiriman(dataEcommerce.pengiriman);
+        await addCartPage.jasaPengiriman();
+        await addCartPage.alamatKirim();
+        await addCartPage.paymentMode(dataEcommerce.metodeBayar);
+        const orderId = await addCartPage.checkoutandGetOrderId(dataEcommerce.successnote);
+        console.log(orderId);
+
+
+    });
+
 
 });

@@ -5,6 +5,7 @@ class FilterProductPage{
     constructor(page){
         this.page=page;
         this.filtercategory = page.locator('[name="category"]');
+        this.categorySemua = page.getByLabel('Semua').first();
         this.filterprices = page.locator('[name="price"]');
         this.filterrate = page.locator('[name="rating"]');
         this.btnFilter = page.getByRole('button',{name:'Terapkan Filter'});
@@ -12,6 +13,7 @@ class FilterProductPage{
         this.nameproduct = page.locator('.p-2 h3');
         this.harga = page.locator('p.text-sm.md\\:text-base.font-bold.text-blue-600:visible, \
                                     p.text-sm.md\\:text-base.font-bold.text-red-600:visible');
+        this.reset = page.getByRole('link',{name:'Reset Filter'});
 
     }
 
@@ -54,6 +56,7 @@ class FilterProductPage{
 
     async checkfilterrating() {
         await this.filterrate.first().waitFor();
+        const count = await this.filterrate.count();
         console.log("Filter rate count:", count);
         for (let i = 0; i < count; i++) {
             const currentFilter = this.filterrate.nth(i);
@@ -61,10 +64,8 @@ class FilterProductPage{
                 await currentFilter.getAttribute('value')
             );
             await currentFilter.check();
-            await Promise.all([
-                this.page.waitForLoadState('networkidle'),
-                this.btnFilter.click()
-            ]);
+            await this.btnFilter.click()
+            
             await expect(this.nameproduct.first()).toBeVisible();
             const ratings = await this.valuerate.allTextContents();
             const numericRate = ratings.map(r => Number(r));
@@ -72,6 +73,11 @@ class FilterProductPage{
                 expect(rate).toBeGreaterThanOrEqual(minRate);
             }
         }
+    }
+
+    async resetFilter(){
+        await this.reset.click();
+        return this.categorySemua;
     }
 
 

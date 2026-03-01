@@ -6,6 +6,7 @@ const {PublicPageMenuList} = require('./PublicPageMenu');
 const {DashboardPage} = require('./DashboardPage');
 const {ECommercePage} = require('./ECommercePage');
 const {FilterProductPage} = require('./FilterProductPage');
+const {AddCartPage} = require('./AddCartPage');
 
 class POManager{
     constructor(page){
@@ -18,6 +19,7 @@ class POManager{
         this.dashboardPage = new DashboardPage(this.page);
         this.eCommercePage = new ECommercePage(this.page);
         this.filterproductPage = new FilterProductPage(this.page);
+        this.addCartPage = new AddCartPage(this.page);
     }
 
     getLoginPage(){
@@ -50,6 +52,10 @@ class POManager{
 
     getFilterPage(){
         return this.filterproductPage;
+    }
+
+    getAddCartPage(){
+        return this.addCartPage;
     }
 }
 
