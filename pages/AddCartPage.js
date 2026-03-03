@@ -10,11 +10,14 @@ class AddCartPage{
         this.btnBeli = page.locator('#buyBtn');
         this.pilihmetodePengiriman = page.locator('[name="shipping_method"]');
         this.jasakirim = page.locator('#shipping-service-section');
-        this.alamatsave = page.locator('#saved_address_id');
+        this.isialamat = page.locator("[name='saved_address_id'][value='new']");
         this.btnPesan = page.getByRole('button',{name:'Pesan Sekarang'});
         this.titleSuccess = page.locator('.font-bold.text-gray-800.mb-2');
         this.orderId = page.locator('.font-bold.text-blue-600');
         this.listItem = page.locator('#summaryItems');
+        this.receivedname = page.locator('#shipping_name');
+        this.phonenumber = page.locator('#shipping_phone');
+        this.receivedAddress = page.locator('#shipping_address');
 
     }
 
@@ -52,16 +55,19 @@ class AddCartPage{
     }
 
     async jasaPengiriman(){
-        await this.jasakirim.waitFor({state:'visible',timeout:15000});
-        const radios = this.jasakirim.locator(' input[type="radio"]');
+        await expect(this.jasakirim).toBeVisible({ timeout: 20000 });
+        const radios = this.jasakirim.locator('input[type="radio"]');
         const count = await radios.count();
         console.log("Radio count:", count);
         const randomRadio = Math.floor(Math.random() * count);
         await radios.nth(randomRadio).check();
     }
 
-    async alamatKirim(){
-        await this.alamatsave.check();
+    async alamatKirim(penerima,nomorpenerima,alamatpenerima){
+        await this.isialamat.click();
+        await this.receivedname.fill(penerima);
+        await this.phonenumber.fill(nomorpenerima);
+        await this.receivedAddress.fill(alamatpenerima);
     }
 
     async paymentMode(metodeBayar){

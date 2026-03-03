@@ -9,7 +9,7 @@ let addCartPage;
 
 test.beforeEach('test login',async ({page})=>{
     const poManager = new POManager(page);
-    const data = datasetLogin.validuser[2];
+    const data = datasetLogin.validuser[1];
     const loginPage = poManager.getLoginPage();
     filterproductPage = poManager.getFilterPage();
     eCommercePage = poManager.getECommercePage();
@@ -54,8 +54,9 @@ test.describe.parallel('E-Commerce test -- ',()=>{
         await addCartPage.searchandAddcart(dataEcommerce.nameProduct);
         await addCartPage.getCheckProductinCart(dataEcommerce.nameProduct);
         await addCartPage.metodePengiriman(dataEcommerce.pengiriman);
+        await page.pause();
         await addCartPage.jasaPengiriman();
-        await addCartPage.alamatKirim();
+        await addCartPage.alamatKirim(dataEcommerce.namapenerima,dataEcommerce.nomorpenerima,dataEcommerce.alamatpenerima);
         await addCartPage.paymentMode(dataEcommerce.metodeBayar);
         const orderId = await addCartPage.checkoutandGetOrderId(dataEcommerce.successnote);
         console.log(orderId);
